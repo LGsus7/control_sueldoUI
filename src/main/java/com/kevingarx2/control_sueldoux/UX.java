@@ -271,14 +271,16 @@ public class UX extends javax.swing.JFrame {
         calcular xd =new calcular();
         double aumento;
         String nombre=NOMBRE.getText();
-        int dya, mes, anhio, anti, sueldo, edad;
+        int dya, mes, anhio, anti, sueldo, edad, ano;
         sueldo=Integer.valueOf(SUELDO.getText());
        dya=Integer.valueOf(String.valueOf(dia1.getSelectedItem()));
        
        mes=Integer.valueOf(String.valueOf(mes1.getSelectedItem()));
        
-       anhio=Integer.valueOf(String.valueOf(anio.getSelectedItem()));
-       anti =xd.antiguedad(dya, mes, anhio);
+       anhio=Integer.valueOf(String.valueOf(año.getSelectedItem()));
+       ano=Integer.valueOf(String.valueOf(anio.getSelectedItem()));
+       
+       anti =xd.antiguedad(dya, mes, ano);
       edad=xd.edad(dya, mes, anhio);
        double resultados= xd.sueldos(sueldo, edad, dya, mes, anhio, anti);
        aumento=resultados-sueldo;

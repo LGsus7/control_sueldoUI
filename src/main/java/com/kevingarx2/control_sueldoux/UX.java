@@ -271,7 +271,7 @@ public class UX extends javax.swing.JFrame {
         calcular xd =new calcular();
         double aumento;
         String nombre=NOMBRE.getText();
-        int dya, mes, anhio, anti, sueldo, edad, ano;
+        int dya, mes, anhio, anti, sueldo, edad, ano, aument;
         sueldo=Integer.valueOf(SUELDO.getText());
        dya=Integer.valueOf(String.valueOf(dia1.getSelectedItem()));
        
@@ -279,15 +279,17 @@ public class UX extends javax.swing.JFrame {
        
        anhio=Integer.valueOf(String.valueOf(año.getSelectedItem()));
        ano=Integer.valueOf(String.valueOf(anio.getSelectedItem()));
-       
        anti =xd.antiguedad(dya, mes, ano);
       edad=xd.edad(dya, mes, anhio);
+      
+       aument=xd.porcentaje(sueldo, edad, dya, mes, ano, edad);
        double resultados= xd.sueldos(sueldo, edad, dya, mes, anhio, anti);
        aumento=resultados-sueldo;
        double bono=xd.bono(sueldo, edad, dya, mes, anhio, anti);
+       
         
      JOptionPane.showMessageDialog(rootPane, "nombre: "+nombre+"\n"+"edad: "+edad+"\n"+"antigüedad : "+anti
-             +"\n"+"sueldo actual: "+sueldo+"\n"+"aumento: "+aumento+"\n"+"bono: "+bono+"\n"+resultados);
+             +"\n"+"sueldo actual: "+sueldo+"\n"+"aumento: "+aumento+"\n"+"bono: "+bono+"\n"+"el porcentaje es: "+aument+"%"+"\n"+"el resutlado es: "+resultados);
        
     }//GEN-LAST:event_CALCULARActionPerformed
 
